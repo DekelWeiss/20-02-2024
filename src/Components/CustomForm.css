@@ -1,0 +1,51 @@
+/* styles.css (or any other stylesheet) */
+
+/* FormDisplayComponent styles */
+.form-display-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .post-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .edit-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .edit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* CustomForm styles */
+  .custom-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .custom-form-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .custom-form-container button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .custom-form-container button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
