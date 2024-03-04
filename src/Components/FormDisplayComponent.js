@@ -1,9 +1,6 @@
-// FormDisplayComponent.js
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import CustomForm from "./CustomForm";
-
-
 
 const FormDisplayComponent = () => {
   const [editingPostId, setEditingPostId] = useState(null);
@@ -16,33 +13,33 @@ const FormDisplayComponent = () => {
   const posts = useSelector((state) => state.posts);
 
   return (
-    <div>
-      <h2>Form Data</h2>
-      {posts.map((post, index) => (
+    <div style={{ padding: "20px" }}>
+      <h2 style={{ marginBottom: "20px" }}>Form Data</h2>
+      {posts.map((post) => (
         <div
-          key={index}
+          key={post.id}
           style={{
-            border: "1px solid black",
-            padding: "10px",
-            marginBottom: "10px",
+            border: "1px solid #ccc",
+            borderRadius: "5px",
+            padding: "15px",
+            marginBottom: "20px",
           }}
-          data-testid="post"
-          data-test-id={index}
-          data-test-name={post.formData.firstName}
-          data-test-age={post.formData.age}
-          data-test-gender={post.formData.gender}
-          data-test-subscribed={post.formData.isSubscribed}
-          data-test-is-editing={editingPostId === index}
         >
-          <h3>User Profile {index + 1}</h3>
-          <p>First Name: {post.formData.firstName}</p>
-          <p>Last Name: {post.formData.lastName}</p>
-          <p>Age: {post.formData.age}</p>
-          <p>Gender: {post.formData.gender}</p>
-          <p>Subscribed: {post.formData.isSubscribed ? "Yes" : "No"}</p>
-          <button onClick={() => handleEditClick(index)}>Edit</button>
-          {editingPostId === index && (
+          <h3>User Profile {post.id}</h3>
+          <p><strong>First Name:</strong> {post.formData.firstName}</p>
+          <p><strong>Last Name:</strong> {post.formData.lastName}</p>
+          <p><strong>Age:</strong> {post.formData.age}</p>
+          <p><strong>Gender:</strong> {post.formData.gender}</p>
+          <p><strong>Subscribed:</strong> {post.formData.isSubscribed ? "Yes" : "No"}</p>
+          <button
+            onClick={() => handleEditClick(post.id)}
+            style={{ padding: "8px 16px", marginTop: "10px" }}
+          >
+            Edit
+          </button>
+          {editingPostId === post.id && (
             <CustomForm
+              key={`form-${post.id}`}
               postId={editingPostId}
               initialFormData={post.formData}
             />

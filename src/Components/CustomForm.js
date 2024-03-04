@@ -1,9 +1,5 @@
-// CustomForm.js
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import './CustomForm.css'
-
-
 
 const CustomForm = ({ formStructure = [], postId, initialFormData }) => {
   const [formData, setFormData] = useState(initialFormData || {});
@@ -31,9 +27,13 @@ const CustomForm = ({ formStructure = [], postId, initialFormData }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={{ marginTop: "20px" ,
+    borderRadius: "5px",
+    padding: "15px",
+    marginBottom: "20px",}} >
       {formStructure.map((field, index) => {
         const { id, type, label, options } = field;
+
         let inputField;
 
         switch (type) {
@@ -75,13 +75,18 @@ const CustomForm = ({ formStructure = [], postId, initialFormData }) => {
         }
 
         return (
-          <div key={id}>
-            <label>{label}</label>
+          <div key={id} style={{ marginBottom: "10px" }}>
+            <label style={{ marginRight: "10px" }}>{label}</label>
             {inputField}
           </div>
         );
       })}
-      <button type="submit">{postId === undefined ? 'Add Post' : 'Update Post'}</button>
+      <button
+        type="submit"
+        style={{ padding: "8px 16px", marginTop: "10px" }}
+      >
+        {postId === undefined ? 'Add Post' : 'Update Post'}
+      </button>
     </form>
   );
 };

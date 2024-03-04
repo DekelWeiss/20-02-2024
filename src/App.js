@@ -42,7 +42,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <div>
-        <h1>Custom Form</h1>
+        <h1 style={{ borderRadius: "5px",
+    padding: "15px",
+    marginBottom: "20px",}}>Custom Form</h1>
         <CustomForm formStructure={formStructure} formData={store.getState().formData} />
         <FormDisplayComponent />
       </div>
